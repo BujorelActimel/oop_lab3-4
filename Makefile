@@ -11,7 +11,13 @@ domain/%.o: domain/%.c
 app: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
+med_tests: tests/test_domain.c
+	gcc -I domain tests/test_domain.c domain/med.c -o med_tests
+	./med_tests
+
 .PHONY: clean
 
 clean:
-	rm -f $(OBJ) app
+	rm -f domain/*.o *~ core $(INCDIR)/*~ 
+	rm -f app
+	rm -f med_tests
