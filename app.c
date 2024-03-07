@@ -8,5 +8,7 @@ int main() {
 
     print_med(med1);
     
+    destruct_med(med1);
+
     return 0;
 }
