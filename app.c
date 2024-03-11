@@ -1,14 +1,40 @@
 #include <stdio.h>
 #include "domain/med.h"
+#include "ui/ui.h"
 
 int main() {
-    printf("Application entrypoint!\n");
 
-    struct med* med1 = construct_med(1, "Paracetamol", 500, 20);
+    while (1) {
+        clear_screen();
+        print_menu();
+        
+        int command = get_command();
 
-    print_med(med1);
-    
-    destruct_med(med1);
+        if (command == 0) {
+            clear_screen();
+            printf("La revedere\n");
+            break;
+        }
+        else if (command == 1) {
+            break;
+        }
+        else if (command == 2) {
+            break;
+        }
+        else if (command == 3) {
+            break;
+        }
+        else if (command == 4) {
+            break;
+        }
+        else if (command == 5) {
+            break;
+        }
+        else {
+            printf("Comanda Invalida\n");
+            press_enter();
+        }
+    }
 
     return 0;
 }

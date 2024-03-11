@@ -4,6 +4,7 @@
 # Ignore executables
 *
 !tests/
+!ui/
 !*.c
 !*.h
 !*.md
