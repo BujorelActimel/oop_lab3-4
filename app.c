@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include "domain/med.h"
+#include "repository/repo.h"
 #include "ui/ui.h"
 
 int main() {
+    repo* repository = construct_repo();
 
     while (1) {
         clear_screen();
@@ -16,7 +18,14 @@ int main() {
             break;
         }
         else if (command == 1) {
-            break;
+            int id = get_id();
+            char* name = get_name();
+            float concentration = get_concentration();
+            int units = get_units();
+            med* new_med = construct_med(id, name, concentration, units);
+            add_med(repository, new_med);
+            printf("Medicament adaugat cu succes\n");
+            press_enter();
         }
         else if (command == 2) {
             break;
@@ -25,7 +34,10 @@ int main() {
             break;
         }
         else if (command == 4) {
-            break;
+            for (int i = 0; i < repository->length; i++) {
+                print_med(repository->inventory[i]);
+            }
+            press_enter();
         }
         else if (command == 5) {
             break;

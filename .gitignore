@@ -3,6 +3,8 @@
 
 # Ignore executables
 *
+!Makefile
+!repository/
 !tests/
 !ui/
 !*.c

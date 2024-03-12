@@ -20,10 +20,7 @@ int get_command() {
     printf("\n>>> ");
     scanf("%d", &command);
 
-    if (command >= 0 && command <= 5) {
-        return command;
-    }
-    return -1;
+    return command;
 }
 
 void press_enter() {
@@ -35,4 +32,32 @@ void press_enter() {
 
     // Wait for the user to press enter
     getchar();
+}
+
+int get_id() {
+    int id;
+    printf("Introduceti ID-ul medicamentului: ");
+    scanf("%d", &id);
+    return id;
+}
+
+char* get_name() {
+    char* name = (char*)malloc(100 * sizeof(char));
+    printf("Introduceti numele medicamentului: ");
+    scanf("%s", name);
+    return name;
+}
+
+float get_concentration() {
+    float concentration;
+    printf("Introduceti concentratia medicamentului: ");
+    scanf("%f", &concentration);
+    return concentration;
+}
+
+int get_units() {
+    int units;
+    printf("Introduceti cantitatea medicamentului: ");
+    scanf("%d", &units);
+    return units;
 }

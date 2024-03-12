@@ -1,26 +1,11 @@
-CC=gcc
-CFLAGS=-Wall -g
-OBJ=app.o domain/med.o ui/ui.o
+# Source files
+SRC = app.c domain/med.c repository/repo.c ui/ui.c
+# Object files
+OBJ = $(SRC:.c=.o)
 
-%.o: %.c
-	$(CC) -c -o $@ $< $(CFLAGS)
+# Compiler flags
+CFLAGS = -Wall -g
 
-domain/%.o: domain/%.c
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-ui/%.o: ui/%.c
-	$(CC) -c -o $@ $< $(CFLAGS)
-
+# Rule to build the application
 app: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
-
-med_tests: tests/test_domain.c
-	gcc -I domain tests/test_domain.c domain/med.c -o med_tests
-	./med_tests
-
-.PHONY: clean
-
-clean:
-	rm -f domain/*.o ui/*.o *~ core $(INCDIR)/*~ 
-	rm -f app
-	rm -f med_tests
+	gcc -o $@ $^ $(CFLAGS)
