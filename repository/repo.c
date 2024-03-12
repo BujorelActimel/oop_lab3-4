@@ -11,7 +11,7 @@ repo* construct_repo() {
 
 void destroy_repo(repo* repository) {
     for (int i = 0; i < repository->length; i++) {
-        free(repository->inventory[i]);
+        destruct_med(repository->inventory[i]);
     }
     free(repository);
 }
@@ -28,20 +28,12 @@ void add_med(repo* repository, med* item) {
     repository->inventory[repository->length++] = item;
 }
 
-void update_med_repo(repo* repository, int item_id, char* new_name, float new_concentration) {
-    for (int i = 0; i < repository->length; i++) {
-        med* item = repository->inventory[i];
-        if (item->id == item_id && item->units > 0) {
-            update_med(item, new_name, new_concentration, item->units);
-        }
-    }
-}
-
-void delete_med_stock(repo* repository, int item_id) {
+void update_med_repo(repo* repository, int item_id, char* new_name, float new_concentration, int new_units) {
     for (int i = 0; i < repository->length; i++) {
         med* item = repository->inventory[i];
         if (item->id == item_id) {
-            item->units = 0;
+            update_med(item, new_name, new_concentration, new_units);
+            return;
         }
     }
 }

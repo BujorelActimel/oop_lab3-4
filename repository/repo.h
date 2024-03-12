@@ -37,14 +37,6 @@ void add_med(repo* repository, med* new_med);
  * @param new_name noul nume al medicamentului
  * @param new_concentration noua concentratie a medicamentului
 */
-void update_med_repo(repo* repository, int item_id, char* new_name, float new_concentration);
-
-
-/**
- * @brief asigneaza 0 la atributul units al obiectului de tip med
- * @param repository pointer catre obiectul de tip repo
- * @param item_id id-ul medicamentului
-*/
-void delete_med_stock(repo* repository, int item_id);
+void update_med_repo(repo* repository, int item_id, char* new_name, float new_concentration, int new_units);
 
 #endif

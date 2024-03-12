@@ -21,24 +21,14 @@ void test_update_med_repo() {
     repo* repository = construct_repo();
     med* item = construct_med(1, "Paracetamol", 500, 10);
     add_med(repository, item);
-    update_med_repo(repository, 1, "Ibuprofen", 200);
+    update_med_repo(repository, 1, "Ibuprofen", 200, 10);
     assert(strcmp(repository->inventory[0]->name, "Ibuprofen") == 0);
     assert(repository->inventory[0]->concentration == 200);
-    destroy_repo(repository);
-}
-
-void test_delete_med_stock() {
-    repo* repository = construct_repo();
-    med* item = construct_med(1, "Paracetamol", 500, 10);
-    add_med(repository, item);
-    delete_med_stock(repository, 1);
-    assert(repository->inventory[0]->units == 0);
     destroy_repo(repository);
 }
 
 void all_repo_tests() {
     test_add_med();
     test_update_med_repo();
-    test_delete_med_stock();
     printf("All Repository tests passed!\n");
 }

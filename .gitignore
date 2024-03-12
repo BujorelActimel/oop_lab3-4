@@ -3,7 +3,7 @@
 
 # Ignore executables
 *
-!Makefile
+!service/
 !repository/
 !tests/
 !ui/
@@ -11,6 +11,7 @@
 !*.h
 !*.md
 !*.txt
+!Makefile
 !*.json
 !*.yml
 !*.xml
