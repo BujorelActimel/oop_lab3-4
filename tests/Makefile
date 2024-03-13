@@ -1,5 +1,5 @@
 # Source files
-SRC = ../domain/med.c ../repository/repo.c
+SRC = ../domain/med.c ../repository/repo.c ../service/service.c
 # Object files
 OBJ = $(SRC:.c=.o)
 
@@ -12,6 +12,6 @@ TEST_OBJ = $(TEST_SRC:.c=.o) $(OBJ)
 CFLAGS = -Wall -g
 
 # Rule to compile and run tests
-tests_exec: $(TEST_OBJ)
+test: $(TEST_OBJ)
 	gcc -o $@ $^ $(CFLAGS)
-	./tests_exec
+	./test
