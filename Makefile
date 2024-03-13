@@ -1,5 +1,5 @@
 # Source files
-SRC = app.c domain/med.c repository/repo.c service/service.c ui/ui.c
+SRC = app.c domain/med.c repository/repo.c ui/ui.c
 # Object files
 OBJ = $(SRC:.c=.o)
 

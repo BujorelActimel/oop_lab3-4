@@ -1,8 +1,6 @@
 #include <stdio.h>
-// #include "domain/med.h"
-#include <stdlib.h>
+#include "domain/med.h"
 #include "repository/repo.h"
-#include "service/service.h"
 #include "ui/ui.h"
 
 int main() {
@@ -15,7 +13,6 @@ int main() {
         int command = get_command();
 
         if (command == 0) {
-            destroy_repo(repository);
             clear_screen();
             printf("La revedere\n");
             break;
@@ -34,6 +31,7 @@ int main() {
                 units
             );
 
+            free(name);
             printf("Medicament adaugat cu succes\n");
             press_enter();
         }
@@ -49,6 +47,7 @@ int main() {
                 concentration
             );
 
+            free(name);
             printf("Medicament modificat cu succes\n");
             press_enter();
         }
@@ -56,10 +55,9 @@ int main() {
             break;
         }
         else if (command == 4) {
-            print_med_list(
-                repository->inventory, 
-                repository->length
-            );
+            for (int i = 0; i < repository->length; i++) {
+                print_med(repository->inventory[i]);
+            }
             press_enter();
         }
         else if (command == 5) {
