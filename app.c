@@ -34,7 +34,6 @@ int main() {
                 units
             );
 
-            free(name);
             printf("Medicament adaugat cu succes\n");
             press_enter();
         }
@@ -50,7 +49,6 @@ int main() {
                 concentration
             );
 
-            free(name);
             printf("Medicament modificat cu succes\n");
             press_enter();
         }
