@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "domain/med.h"
 #include "repository/repo.h"
+#include "service/service.h"
 #include "ui/ui.h"
 
 int main() {
@@ -22,13 +24,35 @@ int main() {
             char* name = get_name();
             float concentration = get_concentration();
             int units = get_units();
-            med* new_med = construct_med(id, name, concentration, units);
-            add_med(repository, new_med);
+
+            add_medication(
+                repository, 
+                id, 
+                name, 
+                concentration, 
+                units
+            );
+
+            free(name);
             printf("Medicament adaugat cu succes\n");
             press_enter();
         }
         else if (command == 2) {
-            break;
+
+            int id = get_id();
+            char* name = get_name();
+            float concentration = get_concentration();
+
+            update_medication(
+                repository, 
+                id, 
+                name, 
+                concentration
+            );
+
+            free(name);
+            printf("Medicament modificat cu succes\n");
+            press_enter();
         }
         else if (command == 3) {
             break;
