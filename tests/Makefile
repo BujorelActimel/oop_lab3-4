@@ -9,9 +9,11 @@ TEST_SRC = $(wildcard *.c)
 TEST_OBJ = $(TEST_SRC:.c=.o) $(OBJ)
 
 # Compiler flags
-CFLAGS = -Wall -g
+# Compiler flags
+CFLAGS = -Wall -g -fprofile-arcs -ftest-coverage
 
 # Rule to compile and run tests
 test: $(TEST_OBJ)
 	gcc -o $@ $^ $(CFLAGS)
 	./test
+	gcov $(SRC)
