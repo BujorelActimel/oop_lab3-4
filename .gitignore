@@ -6,6 +6,7 @@
 !Makefile
 !repository/
 !tests/
+!service/
 !ui/
 !*.c
 !*.h

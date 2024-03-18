@@ -4,8 +4,17 @@ SRC = app.c domain/med.c repository/repo.c service/service.c ui/ui.c
 OBJ = $(SRC:.c=.o)
 
 # Compiler flags
-CFLAGS = -Wall -g -fprofile-arcs -ftest-coverage
+CFLAGS = -Wall -g
+
+# Rule to build the object files
+%.o: %.c
+	gcc -c -o $@ $< $(CFLAGS)
 
 # Rule to build the application
 app: $(OBJ)
-	gcc -c -o $@ $< $(CFLAGS)
+	gcc -o $@ $^ $(CFLAGS)
+
+# Rule to clean the build
+.PHONY: clean
+clean:
+	rm -f $(OBJ) app

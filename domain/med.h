@@ -36,19 +36,4 @@ void destruct_med(med* med);
 */
 void update_med(med* med, char* name, float concentration, int units);
 
-
-/**
- * @brief tipareste atributele unui obiect de tip med
- * @param med pointer catre obiectul de tip med
-*/
-void print_med(med* med);
-
-
-/**
- * @brief tipareste atributele unei liste de obiecte de tip med
- * @param med_list lista de pointeri catre obiecte de tip med
- * @param size dimensiunea listei
-*/
-void print_med_list(med** med_list, int size);
-
 #endif

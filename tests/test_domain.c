@@ -29,8 +29,9 @@ void test_update_med() {
     destruct_med(med1);
 }
 
-void all_domain_tests() {
+int main() {
     test_construct_med();
     test_update_med();
     printf("All Domain tests passed!\n");
+    return 0;
 }

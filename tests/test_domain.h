@@ -1,1 +1,0 @@
-void all_domain_tests();

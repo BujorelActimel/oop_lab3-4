@@ -30,8 +30,9 @@ void test_update_medication() {
     destruct_med(repository->inventory[1]);
 }
 
-void all_service_tests() {
+int main() {
     test_add_medication();
     test_update_medication();
     printf("All Service tests passed!\n");
+    return 0;
 }

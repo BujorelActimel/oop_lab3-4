@@ -23,13 +23,3 @@ void update_med(med* med, char* name, float concentration, int units) {
 void destruct_med(med* med) {
     free(med);
 }
-
-void print_med(med* med) {
-    printf("Medicamentul %s cu concentratia %.2f mg si %d unitati\n", med->name, med->concentration, med->units);
-}
-
-void print_med_list(med** med_list, int size) {
-    for (int i = 0; i < size; i++) {
-        print_med(med_list[i]);
-    }
-}
