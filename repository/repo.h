@@ -4,8 +4,9 @@
 #include "../domain/med.h"
 
 typedef struct {
-    med* inventory[100];
+    med** inventory;
     int length;
+    int capacity;
 } repo;
 
 /**

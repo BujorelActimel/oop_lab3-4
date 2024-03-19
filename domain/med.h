@@ -1,10 +1,9 @@
 #ifndef MED_H
 #define MED_H
-#define MAX_NAME_LENGTH 100
 
 typedef struct {
     int id;
-    char name[MAX_NAME_LENGTH];
+    char* name;
     float concentration;
     int units;
 } med;

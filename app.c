@@ -15,6 +15,7 @@ int main() {
         int command = get_command();
 
         if (command == 0) {
+            destroy_repo(repository);
             clear_screen();
             printf("La revedere\n");
             break;
