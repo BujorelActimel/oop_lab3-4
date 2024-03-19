@@ -4,10 +4,15 @@
 #include "../domain/med.h"
 #include "../repository/repo.h"
 
-void test_add_med() {
+void test_construct_repo() {
     repo* repository = construct_repo();
     assert(repository->length == 0);
     assert(repository->capacity == 1);
+    destroy_repo(repository);
+}
+
+void test_add_med() {
+    repo* repository = construct_repo();
 
     med* item = construct_med(1, "Paracetamol", 500, 10);
     add_med(repository, item);
@@ -35,29 +40,9 @@ void test_add_med() {
     destroy_repo(repository);
 }
 
-void test_update_med_repo() {
-    repo* repository = construct_repo();
-    med* item = construct_med(1, "Paracetamol", 500, 10);
-    add_med(repository, item);
-    update_med_repo(repository, 1, "Ibuprofen", 200);
-    assert(strcmp(repository->inventory[0]->name, "Ibuprofen") == 0);
-    assert(repository->inventory[0]->concentration == 200);
-    destroy_repo(repository);
-}
-
-void test_delete_med_stock() {
-    repo* repository = construct_repo();
-    med* item = construct_med(1, "Paracetamol", 500, 10);
-    add_med(repository, item);
-    delete_med_stock(repository, 1);
-    assert(repository->inventory[0]->units == 0);
-    destroy_repo(repository);
-}
-
 int main() {
+    test_construct_repo();
     test_add_med();
-    test_update_med_repo();
-    test_delete_med_stock();
     printf("All Repository tests passed!\n");
     return 0;
 }

@@ -72,3 +72,31 @@ void print_med_list(med** med_list, int size) {
         print_med(med_list[i]);
     }
 }
+
+int get_reverse() {
+    int reverse;
+    printf("Introduceti 1 pentru sortare descrescatoare sau 0 pentru sortare crescatoare: ");
+    scanf("%d", &reverse);
+    return reverse;
+}
+
+int get_filter_option() {
+    int value;
+    printf("Introduceti optiunea de filtrare (\n1 - numar maxim de unitati,\n2 - initiala numelui\n): ");
+    scanf("%d", &value);
+    return value;
+}
+
+int get_value() {
+    int value;
+    printf("Introduceti valoarea: ");
+    scanf("%d", &value);
+    return value;
+}
+
+char get_letter() {
+    char letter;
+    printf("Introduceti litera: ");
+    scanf(" %c", &letter);
+    return letter;
+}

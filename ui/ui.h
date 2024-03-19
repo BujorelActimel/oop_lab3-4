@@ -68,4 +68,29 @@ void print_med(med* med);
 */
 void print_med_list(med** med_list, int size);
 
+
+/**
+ * @brief cere input de la utilizator daca lista de medicamente trebuie sortata crescator sau descrescator
+ * @return 1 daca lista trebuie sortata descrescator, 0 altfel
+*/
+int get_reverse();
+
+/**
+ * @brief cere input de la utilizator daca lista de medicamente trebuie filtrata dupa un criteriu
+ * @return optiunea de filtrare
+*/
+int get_filter_option();
+
+/**
+ * @brief cere input de la utilizator valoaarea dupa care trebuie filtrata lista de medicamente
+ * @return numarul maxim de unitati al medicamentelor care trebuie afisate
+*/
+int get_value();
+
+/**
+ * @brief cere input de la utilizator litera dorita
+ * @return litera dorita
+*/
+char get_letter();
+
 #endif

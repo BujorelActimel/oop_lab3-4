@@ -56,16 +56,86 @@ int main() {
             press_enter();
         }
         else if (command == 3) {
-            break;
+            int id = get_id();
+
+            delete_med_stock(
+                repository, 
+                id
+            );
+
+            printf("Stocul medicamentului a fost eliminat\n");
+            press_enter();
         }
         else if (command == 4) {
-            for (int i = 0; i < repository->length; i++) {
-                print_med(repository->inventory[i]);
-            }
+            printf("Medicamentele din stoc ordonate dupa nume, cantitate (crescator/descrescator).\n");
+            
+            int reverse = get_reverse();
+
+            med** sorted_inventory = sort_meds_in_stock(
+                repository->inventory, 
+                repository->length,
+                reverse
+            );
+
+            int length = num_of_meds_in_stock(
+                repository->inventory, 
+                repository->length
+            );
+
+            print_med_list(
+                sorted_inventory, 
+                length
+            );
+            
+            free(sorted_inventory);
+
             press_enter();
         }
         else if (command == 5) {
-            break;
+            printf("Medicamentele din stoc filtrate dupa un criteriu.\n");
+            int option = get_filter_option();
+
+            if (option == 1) {
+                int value = get_value();
+                med** filtered_inventory = filter_meds_by_units(
+                    repository->inventory, 
+                    repository->length, 
+                    value
+                );
+                int length = num_of_meds_by_units(
+                    repository->inventory, 
+                    repository->length, 
+                    value
+                );
+                print_med_list(
+                    filtered_inventory, 
+                    length
+                );
+                press_enter();
+                free(filtered_inventory);
+            }
+            else if (option == 2) {
+                char letter = get_letter();
+                med** filtered_inventory = filter_meds_by_initial_letter(
+                    repository->inventory, 
+                    repository->length, 
+                    letter
+                );
+                int length = num_of_meds_by_initial_letter(
+                    repository->inventory, 
+                    repository->length, 
+                    letter
+                );
+                print_med_list(
+                    filtered_inventory, 
+                    length
+                );
+                press_enter();
+                free(filtered_inventory);
+            }
+            else {
+                printf("Optiune invalida\n");
+            }
         }
         else {
             printf("Comanda Invalida\n");
