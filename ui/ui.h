@@ -93,4 +93,60 @@ int get_value();
 */
 char get_letter();
 
+/**
+ * @brief valideaza id-ul unui medicament
+ * @param id id-ul medicamentului
+ * @return 1 daca id-ul este valid, 0 altfel
+*/
+int validate_id(int id);
+
+/**
+ * @brief valideaza numele unui medicament
+ * @param name numele medicamentului
+ * @return 1 daca numele este valid, 0 altfel
+*/
+int validate_name(char* name);
+
+/**
+ * @brief valideaza concentratia unui medicament
+ * @param concentration concentratia medicamentului
+ * @return 1 daca concentratia este valida, 0 altfel
+*/
+int validate_concentration(float concentration);
+
+/**
+ * @brief valideaza numarul de unitati al unui medicament
+ * @param units numarul de unitati al medicamentului
+ * @return 1 daca numarul de unitati este valid, 0 altfel
+*/
+int validate_units(int units);
+
+/**
+ * @brief valideaza optiunea de filtrare
+ * @param value optiunea de filtrare
+ * @return 1 daca optiunea este valida, 0 altfel
+*/
+int validate_reverse(int reverse);
+
+/**
+ * @brief valideaza optiunea de filtrare
+ * @param filter_option optiunea de filtrare
+ * @return 1 daca optiunea este valida, 0 altfel
+*/
+int validate_filter_option(int filter_option);
+
+/**
+ * @brief valideaza valoarea dupa care trebuie filtrata lista de medicamente
+ * @param value valoarea dupa care trebuie filtrata lista de medicamente
+ * @return 1 daca valoarea este valida, 0 altfel
+*/
+int validate_value(int value);
+
+/**
+ * @brief valideaza litera dorita
+ * @param letter litera dorita
+ * @return 1 daca litera este valida, 0 altfel
+*/
+int validate_letter(char letter);
+
 #endif

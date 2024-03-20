@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "../domain/med.h"
 
 void clear_screen() {
@@ -99,4 +100,76 @@ char get_letter() {
     printf("Introduceti litera: ");
     scanf(" %c", &letter);
     return letter;
+}
+
+int validate_id(int id) {
+    if (id < 0) {
+        printf("ID-ul trebuie sa fie un numar pozitiv\n");
+        press_enter();
+        return 0;
+    }
+    return 1;
+}
+
+int validate_name(char* name) {
+    if (strlen(name) == 0) {
+        printf("Numele medicamentului nu poate fi vid\n");
+        press_enter();
+        return 0;
+    }
+    return 1;
+}
+
+int validate_concentration(float concentration) {
+    if (concentration < 0) {
+        printf("Concentratia medicamentului trebuie sa fie un numar pozitiv\n");
+        press_enter();
+        return 0;
+    }
+    return 1;
+}
+
+int validate_units(int units) {
+    if (units < 0) {
+        printf("Cantitatea medicamentului trebuie sa fie un numar pozitiv\n");
+        press_enter();
+        return 0;
+    }
+    return 1;
+}
+
+int validate_reverse(int reverse) {
+    if (reverse != 0 && reverse != 1) {
+        printf("Optiunea de sortare trebuie sa fie 0 sau 1\n");
+        press_enter();
+        return 0;
+    }
+    return 1;
+}
+
+int validate_filter_option(int filter_option) {
+    if (filter_option != 1 && filter_option != 2) {
+        printf("Optiunea de filtrare trebuie sa fie 1 sau 2\n");
+        press_enter();
+        return 0;
+    }
+    return 1;
+}
+
+int validate_value(int value) {
+    if (value < 0) {
+        printf("Valoarea trebuie sa fie un numar pozitiv\n");
+        press_enter();
+        return 0;
+    }
+    return 1;
+}
+
+int validate_letter(char letter) {
+    if ((letter < 'A' && letter > 'Z') || (letter < 'a' && letter > 'z')) {
+        printf("Litera invalida\n");
+        press_enter();
+        return 0;
+    }
+    return 1;
 }
