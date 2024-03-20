@@ -110,7 +110,7 @@ int main() {
             med** sorted_inventory = sort_meds_in_stock(
                 repository->inventory, 
                 repository->length,
-                reverse
+                (reverse == 0) ? ascending_order : descending_order
             );
 
             int length = num_of_meds_in_stock(

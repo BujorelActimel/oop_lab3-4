@@ -38,33 +38,32 @@ int num_of_meds_in_stock(med** inventory, int length) {
     return count;
 }
 
-med** sort_meds_in_stock(med** inventory, int length, int reverse) {
+int ascending_order(const med* a, const med* b) {
+    return strcmp(a->name, b->name);
+}
+
+int descending_order(const med* a, const med* b) {
+    return strcmp(b->name, a->name);
+}
+
+med** sort_meds_in_stock(med** inventory, int length, comp_func cmp) {
     int new_length = num_of_meds_in_stock(inventory, length);
     med** sorted_inventory = (med**)malloc(new_length * sizeof(med*));
 
-    // elimina medicamentele care nu sunt in stoc
+    // eliminate medicines that are not in stock
     int k = 0;
     for (int i = 0; i < length; i++) {
         if (inventory[i]->units > 0) {
             sorted_inventory[k++] = inventory[i];
         }
     }
-    // sortare dupa nume si numar de unitati crescator/descrescator
+    // sort by name and number of units in ascending/descending order
     for (int i = 0; i < new_length - 1; i++) {
         for (int j = i + 1; j < new_length; j++) {
-            if (reverse) {
-                if (strcmp(sorted_inventory[i]->name, sorted_inventory[j]->name) < 0) {
-                    med* temp = sorted_inventory[i];
-                    sorted_inventory[i] = sorted_inventory[j];
-                    sorted_inventory[j] = temp;
-                }
-            }
-            else {
-                if (strcmp(sorted_inventory[i]->name, sorted_inventory[j]->name) > 0) {
-                    med* temp = sorted_inventory[i];
-                    sorted_inventory[i] = sorted_inventory[j];
-                    sorted_inventory[j] = temp;
-                }
+            if (cmp(sorted_inventory[i], sorted_inventory[j]) > 0) {
+                med* temp = sorted_inventory[i];
+                sorted_inventory[i] = sorted_inventory[j];
+                sorted_inventory[j] = temp;
             }
         }
     }

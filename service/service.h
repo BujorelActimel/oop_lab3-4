@@ -1,6 +1,8 @@
 #pragma once
 #include "../repository/repo.h"
 
+typedef int (*comp_func)(const med*, const med*);
+
 /**
  * @brief adauga un medicament in repository
  * @param repository pointer la repository
@@ -41,7 +43,7 @@ int num_of_meds_in_stock(med** inventory, int length);
  * @param length lungimea listei de medicamente
  * @return pointer la lista de medicamente sortata
  */
-med** sort_meds_in_stock(med** inventory, int length, int reverse);
+med** sort_meds_in_stock(med** inventory, int length, comp_func cmp);
 
 /**
  * @brief numara medicamentele care au numarul de unitati mai mic decat o valoare data
@@ -78,3 +80,8 @@ int num_of_meds_by_initial_letter(med** inventory, int length, char letter);
  * @return pointer la lista de medicamente filtrata
  */
 med** filter_meds_by_initial_letter(med** inventory, int length, char letter);
+
+
+int ascending_order(const med* a, const med* b);
+
+int descending_order(const med* a, const med* b);

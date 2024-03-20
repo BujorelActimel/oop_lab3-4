@@ -72,7 +72,7 @@ void test_sort_meds_in_stock() {
     add_medication(repository, 2, "Ibuprofren", 100, 200);
     add_medication(repository, 3, "Aspirin", 300, 300);
 
-    med** sorted_inventory = sort_meds_in_stock(repository->inventory, repository->length, 0);
+    med** sorted_inventory = sort_meds_in_stock(repository->inventory, repository->length, ascending_order);
     assert(strcmp(sorted_inventory[0]->name, "Aspirin") == 0);
     assert(strcmp(sorted_inventory[1]->name, "Ibuprofren") == 0);
     assert(strcmp(sorted_inventory[2]->name, "Paracetamol") == 0);
@@ -87,7 +87,7 @@ void test_sort_meds_in_stock() {
     add_medication(repository2, 2, "Ibuprofren", 100, 200);
     add_medication(repository2, 1, "Paracetamol", 500, 100);
 
-    med** sorted_inventory2 = sort_meds_in_stock(repository2->inventory, repository2->length, 1);
+    med** sorted_inventory2 = sort_meds_in_stock(repository2->inventory, repository2->length, descending_order);
     assert(strcmp(sorted_inventory2[0]->name, "Paracetamol") == 0);
     assert(strcmp(sorted_inventory2[1]->name, "Ibuprofren") == 0);
     assert(strcmp(sorted_inventory2[2]->name, "Aspirin") == 0);
